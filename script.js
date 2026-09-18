@@ -20,23 +20,23 @@ let computerScore = 0
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice === "invalid choice"){
-        prompt("invalid choice! please select from Rock, Paper, or Scissors")
+        alert("invalid choice! please select from Rock, Paper, or Scissors")
         return
     }
     if (computerChoice == humanChoice){
-        prompt("It's a tie!\nChoose again.")
+        alert("It's a tie!\nChoose again.")
         return "It's Draw!"
     }
 
     else if ((computerChoice === "Scissors" && humanChoice === "Rock") ||
              (computerChoice === "Paper" && humanChoice === "Scissors") || 
              (computerChoice === "Rock" && humanChoice === "Paper")) {
-                prompt("Congrats! You just beat the computer\nContinue.")
+                alert("Congrats! You just beat the computer\nContinue.")
                 humanScore += 1
                 return "You win"
              }
     else {
-        prompt("You lose. Try again!")
+        alert(`You lose.\nComputer choose ${computerChoice}, ${computerChoice} beats ${humanChoice}\nTry again!`)
         computerScore += 1
         return "you lose"
     }
@@ -51,7 +51,7 @@ for (let i = 0; i < 4; i +=1) {
     console.log(playRound(getHumanChoice(), getComputerChoice()))
 }
 
-prompt(`Game Over!\n Score: You = ${humanScore}    Computer = ${computerScore}`)
+prompt(`Game Over!\nScore: You = ${humanScore}    Computer = ${computerScore}`)
 }
 
 console.log(playGame())
